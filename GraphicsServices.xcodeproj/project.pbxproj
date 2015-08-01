@@ -21,7 +21,7 @@
 
 /* Begin PBXFileReference section */
 		829F155A1B6C5FAB00F8E692 /* GraphicsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphicsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicsServices.h; sourceTree = "<group>"; };
+		829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GraphicsServices.h; path = GraphicsServices/GraphicsServices.h; sourceTree = "<group>"; };
 		829F155F1B6C5FAB00F8E692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		829F15651B6C5FCD00F8E692 /* GSBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSBase.h; sourceTree = "<group>"; };
 		829F15671B6C600900F8E692 /* GSEvent.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GSEvent.c; sourceTree = "<group>"; };
@@ -48,6 +48,7 @@
 		829F15501B6C5FAB00F8E692 = {
 			isa = PBXGroup;
 			children = (
+				829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */,
 				829F155C1B6C5FAB00F8E692 /* GraphicsServices */,
 				829F155B1B6C5FAB00F8E692 /* Products */,
 			);
@@ -64,7 +65,6 @@
 		829F155C1B6C5FAB00F8E692 /* GraphicsServices */ = {
 			isa = PBXGroup;
 			children = (
-				829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */,
 				829F15651B6C5FCD00F8E692 /* GSBase.h */,
 				829F15711B6C85EA00F8E692 /* CFBase.c */,
 				829F15671B6C600900F8E692 /* GSEvent.c */,
@@ -310,6 +310,7 @@
 				829F15641B6C5FAB00F8E692 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
