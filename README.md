@@ -14,7 +14,7 @@ even AppKit must delegate to it frequently for platform behaviors.
 Carbon controls far too much, and interacting with it in some form remains
 a necessary evil if one wishes to get an app off the ground and into the dock.
 That is, frankly, unacceptable.  We can do better, we must do better!  In that
-spirit this framework draws upon the spirit of 
+spirit this framework draws upon the essence of 
 [GraphicsServices](http://iphonedevwiki.net/index.php/GraphicsServices.framework), 
 iOS' eventing and high-level graphics extension library to redo the fundamental
 event pump machinery in OS X.
