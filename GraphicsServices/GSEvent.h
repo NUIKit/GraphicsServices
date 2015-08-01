@@ -52,12 +52,12 @@ CF_EXPORT const CFStringRef kGSEventReceiveRunLoopMode;
 CF_EXPORT void GSEventRun();
 
 /// Pushes a new run loop mode onto the top of the stack.
-void GSEventPushRunLoopMode(CFStringRef mode);
+CF_EXPORT void GSEventPushRunLoopMode(CFStringRef mode);
 
 /// Pops the topmost run loop mode from the stack.
 ///
 /// If there are no modes or the last mode has been popped the application will terminate.
-void GSEventPopRunLoopMode(CFStringRef mode);
+CF_EXPORT void GSEventPopRunLoopMode(CFStringRef mode);
 
 /// Spins the runloop in the topmost mode by initiating a modal session in the previous runloop.
 ///

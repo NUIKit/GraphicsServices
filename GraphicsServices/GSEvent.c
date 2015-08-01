@@ -75,7 +75,7 @@ CFTypeID GSEventGetTypeID() {
 GSEventRef GSEventCreateWithCGEvent(CFAllocatorRef allocator, CGEventRef event) {
 	uint32_t size = sizeof(struct __GSEvent) - sizeof(CFRuntimeBase);
 	GSEventRef memory = (void *)_CFRuntimeCreateInstance(allocator, GSEventGetTypeID(), size, NULL);
-	if (NULL == memory) {
+	if (memory == NULL) {
 		return NULL;
 	}
 	
