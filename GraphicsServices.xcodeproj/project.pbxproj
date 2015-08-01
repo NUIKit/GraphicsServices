@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		829F155E1B6C5FAB00F8E692 /* GraphicsServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		829F15661B6C5FCD00F8E692 /* GSBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F15651B6C5FCD00F8E692 /* GSBase.h */; };
+		829F15691B6C600900F8E692 /* GSEvent.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F15671B6C600900F8E692 /* GSEvent.c */; };
+		829F156A1B6C600900F8E692 /* GSEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F15681B6C600900F8E692 /* GSEvent.h */; };
+		829F156C1B6C60A300F8E692 /* GSCoreFoundationBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F156B1B6C60A300F8E692 /* GSCoreFoundationBridge.h */; };
+		829F156F1B6C67D800F8E692 /* GSPrivate.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F156D1B6C67D800F8E692 /* GSPrivate.c */; };
+		829F15701B6C67D800F8E692 /* GSPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F156E1B6C67D800F8E692 /* GSPrivate.h */; };
+		829F15721B6C85EA00F8E692 /* CFBase.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F15711B6C85EA00F8E692 /* CFBase.c */; };
+		829F15751B6D3D7B00F8E692 /* GSEventQueue.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F15731B6D3D7B00F8E692 /* GSEventQueue.c */; };
+		829F15761B6D3D7B00F8E692 /* GSEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F15741B6D3D7B00F8E692 /* GSEventQueue.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		829F155A1B6C5FAB00F8E692 /* GraphicsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphicsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicsServices.h; sourceTree = "<group>"; };
+		829F155F1B6C5FAB00F8E692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		829F15651B6C5FCD00F8E692 /* GSBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSBase.h; sourceTree = "<group>"; };
+		829F15671B6C600900F8E692 /* GSEvent.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GSEvent.c; sourceTree = "<group>"; };
+		829F15681B6C600900F8E692 /* GSEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSEvent.h; sourceTree = "<group>"; };
+		829F156B1B6C60A300F8E692 /* GSCoreFoundationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCoreFoundationBridge.h; sourceTree = "<group>"; };
+		829F156D1B6C67D800F8E692 /* GSPrivate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GSPrivate.c; sourceTree = "<group>"; };
+		829F156E1B6C67D800F8E692 /* GSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPrivate.h; sourceTree = "<group>"; };
+		829F15711B6C85EA00F8E692 /* CFBase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBase.c; sourceTree = "<group>"; };
+		829F15731B6D3D7B00F8E692 /* GSEventQueue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GSEventQueue.c; sourceTree = "<group>"; };
+		829F15741B6D3D7B00F8E692 /* GSEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSEventQueue.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		829F15561B6C5FAB00F8E692 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		829F15501B6C5FAB00F8E692 = {
+			isa = PBXGroup;
+			children = (
+				829F155C1B6C5FAB00F8E692 /* GraphicsServices */,
+				829F155B1B6C5FAB00F8E692 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		829F155B1B6C5FAB00F8E692 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				829F155A1B6C5FAB00F8E692 /* GraphicsServices.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		829F155C1B6C5FAB00F8E692 /* GraphicsServices */ = {
+			isa = PBXGroup;
+			children = (
+				829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */,
+				829F15651B6C5FCD00F8E692 /* GSBase.h */,
+				829F15711B6C85EA00F8E692 /* CFBase.c */,
+				829F15671B6C600900F8E692 /* GSEvent.c */,
+				829F15681B6C600900F8E692 /* GSEvent.h */,
+				829F15731B6D3D7B00F8E692 /* GSEventQueue.c */,
+				829F15741B6D3D7B00F8E692 /* GSEventQueue.h */,
+				829F156D1B6C67D800F8E692 /* GSPrivate.c */,
+				829F156E1B6C67D800F8E692 /* GSPrivate.h */,
+				829F156B1B6C60A300F8E692 /* GSCoreFoundationBridge.h */,
+				829F155F1B6C5FAB00F8E692 /* Info.plist */,
+			);
+			path = GraphicsServices;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		829F15571B6C5FAB00F8E692 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				829F155E1B6C5FAB00F8E692 /* GraphicsServices.h in Headers */,
+				829F156C1B6C60A300F8E692 /* GSCoreFoundationBridge.h in Headers */,
+				829F15661B6C5FCD00F8E692 /* GSBase.h in Headers */,
+				829F15701B6C67D800F8E692 /* GSPrivate.h in Headers */,
+				829F15761B6D3D7B00F8E692 /* GSEventQueue.h in Headers */,
+				829F156A1B6C600900F8E692 /* GSEvent.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		829F15591B6C5FAB00F8E692 /* GraphicsServices */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 829F15621B6C5FAB00F8E692 /* Build configuration list for PBXNativeTarget "GraphicsServices" */;
+			buildPhases = (
+				829F15551B6C5FAB00F8E692 /* Sources */,
+				829F15561B6C5FAB00F8E692 /* Frameworks */,
+				829F15571B6C5FAB00F8E692 /* Headers */,
+				829F15581B6C5FAB00F8E692 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GraphicsServices;
+			productName = GraphicsServices;
+			productReference = 829F155A1B6C5FAB00F8E692 /* GraphicsServices.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		829F15511B6C5FAB00F8E692 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = CodaFi;
+				TargetAttributes = {
+					829F15591B6C5FAB00F8E692 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 829F15541B6C5FAB00F8E692 /* Build configuration list for PBXProject "GraphicsServices" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 829F15501B6C5FAB00F8E692;
+			productRefGroup = 829F155B1B6C5FAB00F8E692 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				829F15591B6C5FAB00F8E692 /* GraphicsServices */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		829F15581B6C5FAB00F8E692 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		829F15551B6C5FAB00F8E692 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				829F15691B6C600900F8E692 /* GSEvent.c in Sources */,
+				829F15751B6D3D7B00F8E692 /* GSEventQueue.c in Sources */,
+				829F156F1B6C67D800F8E692 /* GSPrivate.c in Sources */,
+				829F15721B6C85EA00F8E692 /* CFBase.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		829F15601B6C5FAB00F8E692 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		829F15611B6C5FAB00F8E692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		829F15631B6C5FAB00F8E692 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = GraphicsServices/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodaFi.GraphicsServices;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		829F15641B6C5FAB00F8E692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = GraphicsServices/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CodaFi.GraphicsServices;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		829F15541B6C5FAB00F8E692 /* Build configuration list for PBXProject "GraphicsServices" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				829F15601B6C5FAB00F8E692 /* Debug */,
+				829F15611B6C5FAB00F8E692 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		829F15621B6C5FAB00F8E692 /* Build configuration list for PBXNativeTarget "GraphicsServices" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				829F15631B6C5FAB00F8E692 /* Debug */,
+				829F15641B6C5FAB00F8E692 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 829F15511B6C5FAB00F8E692 /* Project object */;
+}
