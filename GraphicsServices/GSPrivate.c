@@ -6,8 +6,9 @@
 //  Copyright © 2015 CodaFi. All rights reserved.
 //
 
-#include "GSEvent.h"
 #include "GSPrivate.h"
+#include "GSApp.h"
+#include "GSEvent.h"
 #include "GSEventQueue.h"
 
 mach_port_name_t ___lastRecievedPort;

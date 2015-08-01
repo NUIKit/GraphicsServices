@@ -17,6 +17,8 @@
 		829F15721B6C85EA00F8E692 /* CFBase.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F15711B6C85EA00F8E692 /* CFBase.c */; };
 		829F15751B6D3D7B00F8E692 /* GSEventQueue.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F15731B6D3D7B00F8E692 /* GSEventQueue.c */; };
 		829F15761B6D3D7B00F8E692 /* GSEventQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F15741B6D3D7B00F8E692 /* GSEventQueue.h */; };
+		829F15791B6D4BB900F8E692 /* GSApp.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F15771B6D4BB900F8E692 /* GSApp.c */; };
+		829F157A1B6D4BB900F8E692 /* GSApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F15781B6D4BB900F8E692 /* GSApp.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		829F15711B6C85EA00F8E692 /* CFBase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFBase.c; sourceTree = "<group>"; };
 		829F15731B6D3D7B00F8E692 /* GSEventQueue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GSEventQueue.c; sourceTree = "<group>"; };
 		829F15741B6D3D7B00F8E692 /* GSEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSEventQueue.h; sourceTree = "<group>"; };
+		829F15771B6D4BB900F8E692 /* GSApp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = GSApp.c; path = ../../GSApp.c; sourceTree = "<group>"; };
+		829F15781B6D4BB900F8E692 /* GSApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GSApp.h; path = ../../GSApp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +73,24 @@
 				829F15711B6C85EA00F8E692 /* CFBase.c */,
 				829F15671B6C600900F8E692 /* GSEvent.c */,
 				829F15681B6C600900F8E692 /* GSEvent.h */,
+				829F15771B6D4BB900F8E692 /* GSApp.c */,
+				829F15781B6D4BB900F8E692 /* GSApp.h */,
 				829F15731B6D3D7B00F8E692 /* GSEventQueue.c */,
 				829F15741B6D3D7B00F8E692 /* GSEventQueue.h */,
 				829F156D1B6C67D800F8E692 /* GSPrivate.c */,
 				829F156E1B6C67D800F8E692 /* GSPrivate.h */,
 				829F156B1B6C60A300F8E692 /* GSCoreFoundationBridge.h */,
-				829F155F1B6C5FAB00F8E692 /* Info.plist */,
+				829F157B1B6D4C9A00F8E692 /* Supporting Files */,
 			);
 			path = GraphicsServices;
+			sourceTree = "<group>";
+		};
+		829F157B1B6D4C9A00F8E692 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				829F155F1B6C5FAB00F8E692 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +100,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				829F157A1B6D4BB900F8E692 /* GSApp.h in Headers */,
 				829F155E1B6C5FAB00F8E692 /* GraphicsServices.h in Headers */,
 				829F156C1B6C60A300F8E692 /* GSCoreFoundationBridge.h in Headers */,
 				829F15661B6C5FCD00F8E692 /* GSBase.h in Headers */,
@@ -162,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				829F15791B6D4BB900F8E692 /* GSApp.c in Sources */,
 				829F15691B6C600900F8E692 /* GSEvent.c in Sources */,
 				829F15751B6D3D7B00F8E692 /* GSEventQueue.c in Sources */,
 				829F156F1B6C67D800F8E692 /* GSPrivate.c in Sources */,

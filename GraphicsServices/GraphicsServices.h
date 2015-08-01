@@ -10,6 +10,7 @@
 #define GRAPHICS_SERVICES_H
 
 #include "GSBase.h"
+#include "GSApp.h"
 #include "GSEvent.h"
 
 #endif
