@@ -72,8 +72,9 @@ void GSAppStopModal() {
 	CFRunLoopStop(CFRunLoopGetCurrent());
 }
 
-static mach_port_name_t ___applicationPort;
-
+static mach_port_t ___applicationPort;
+extern CGError CGSGetEventPort(int64_t, mach_port_t *);
+extern int64_t CGSMainConnectionID();
 
 void __GSEventInitializeApp(dispatch_queue_t queue) {
 	static bool _initialized;
@@ -84,24 +85,29 @@ void __GSEventInitializeApp(dispatch_queue_t queue) {
 	_initialized = true;
 	
 	__GSEventInitializeShared(queue);
-	___applicationPort = CFMachPortGetPort(CGWindowServerCreateServerPort());
+	
+	int64_t context = CGSMainConnectionID();
+	if (CGSGetEventPort(context, &___applicationPort) != kCGErrorSuccess) {
+		fprintf(stderr, "Fatal: failed to create main application connection port");
+		abort();
+	}
 	
 	if (queue != NULL) {
 		mach_port_limits_t qlimits;
 		qlimits.mpl_qlimit = 0x100;
 		mach_port_set_attributes(mach_task_self(), ___applicationPort, MACH_PORT_LIMITS_INFO, (mach_port_info_t)&qlimits, MACH_PORT_LIMITS_INFO_COUNT);
-		_GSAddSourceForEventPort(___applicationPort, queue);
+		_GSAddSourceForEventPort(___applicationPort, queue, context);
 	}
 	
 	if (___eventRunLoop != NULL) {
-		_GSAddRunLoopSourceForEventPort(___applicationPort, kCFRunLoopCommonModes);
-		_GSAddRunLoopSourceForEventPort(___applicationPort, kGSEventReceiveRunLoopMode);
+		_GSAddRunLoopSourceForEventPort(___applicationPort, kCFRunLoopCommonModes, context);
+		_GSAddRunLoopSourceForEventPort(___applicationPort, kGSEventReceiveRunLoopMode, context);
 	}
-	//	int err = mach_port_insert_right(mach_task_self(), ___applicationPort, ___applicationPort, MACH_MSG_TYPE_MAKE_SEND);
-	//	if (err != KERN_SUCCESS) {
-	//		fprintf(stderr, "mach_port_insert_right() error: %s\n", mach_error_string(err));
-	//		abort();
-	//	}
+//	int err = mach_port_insert_right(mach_task_self(), ___applicationPort, ___applicationPort, MACH_MSG_TYPE_MAKE_SEND);
+//	if (err != KERN_SUCCESS) {
+//		fprintf(stderr, "mach_port_insert_right() error: %s\n", mach_error_string(err));
+//		abort();
+//	}
 }
 
 void GSAppInitialize() {
