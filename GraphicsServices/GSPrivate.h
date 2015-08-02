@@ -24,12 +24,12 @@ CF_EXPORT
 void _GSEventClassInitialize();
 
 CF_EXPORT
-void _GSAddRunLoopSourceForEventPort(mach_port_name_t, CFStringRef);
+void _GSAddRunLoopSourceForEventPort(mach_port_t port, CFStringRef mode, int64_t contextID);
 
 CF_EXPORT
-void _GSAddSourceForEventPort(mach_port_name_t, dispatch_queue_t);
+void _GSAddSourceForEventPort(mach_port_t port, dispatch_queue_t queue, int64_t contextID);
 
 CF_EXPORT
-CGEventRef CGEventCreateNextEvent();
+CGEventRef CGEventCreateNextEvent(int64_t);
 
 #endif /* GSPRIVATE_H */

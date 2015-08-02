@@ -17,52 +17,59 @@ CFRunLoopRef ___eventRunLoop;
 static dispatch_queue_t ___eventDeliveryQueue;
 void (^___eventCallBack)(GSEventRef);
 
-static GSEventRef _ReceiveEvent(mach_port_name_t port);
+static void _ReceiveEvent(CFMachPortRef port, void *msg, CFIndex size, void *info);
 static void _PurpleEventSignalCallback(void *context);
 static void __PurpleEventCallback(GSEventRef event);
 
-
-void _GSAddRunLoopSourceForEventPort(mach_port_name_t port, CFStringRef mode) {
-	CFRunLoopSourceContext context = (CFRunLoopSourceContext){
-		.perform = _PurpleEventSignalCallback,
+void _GSAddRunLoopSourceForEventPort(mach_port_t p, CFStringRef mode, int64_t contextID) {
+	CFMachPortContext context = (CFMachPortContext){
+		1,
+		(void *)contextID,
+		NULL,
+		NULL,
+		NULL,
 	};
-	CFRunLoopSourceRef eventSource = CFRunLoopSourceCreate(NULL, -1, &context);
+	CFMachPortRef port = CFMachPortCreateWithPort(NULL, p, _ReceiveEvent, &context, NULL);
+	CFRunLoopSourceRef eventSource = CFMachPortCreateRunLoopSource(NULL, port, -1);
 	CFRunLoopAddSource(___eventRunLoop, eventSource, mode);
 	CFRelease(eventSource);
 }
 
-void _GSAddSourceForEventPort(mach_port_name_t port, dispatch_queue_t queue) {
+void _GSAddSourceForEventPort(mach_port_t eport, dispatch_queue_t queue, int64_t contextID) {
 	if (queue != NULL) {
-		dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_MACH_RECV, (mach_port_name_t)port, 0, queue);
+		dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_MACH_RECV, (mach_port_name_t)eport, 0, queue);
 		dispatch_source_set_event_handler(source, ^{
 			mach_port_name_t port = (mach_port_name_t)dispatch_source_get_handle(source);
 			if (port != 0) {
 				___lastRecievedPort = port;
 			}
-			GSEventRef receivedEvent = _ReceiveEvent(port);
+			_ReceiveEvent(NULL, NULL, 0, NULL);
 			do {
-				__PurpleEventCallback(receivedEvent);
+//				__PurpleEventCallback(receivedEvent);
 				if (GSEventQueueIsEmpty(GSEventQueueGetThreadLocalQueue())) {
 					break;
 				}
-				receivedEvent = NULL;
 			} while (true);
 			return;
 		});
 		dispatch_resume(source);
 	} else {
-		_GSAddRunLoopSourceForEventPort(port, kCFRunLoopCommonModes);
-		_GSAddRunLoopSourceForEventPort(port, kGSEventReceiveRunLoopMode);
+		_GSAddRunLoopSourceForEventPort(eport, kCFRunLoopCommonModes, contextID);
+		_GSAddRunLoopSourceForEventPort(eport, kGSEventReceiveRunLoopMode, contextID);
 	}
 }
 
-static GSEventRef _ReceiveEvent(mach_port_name_t port) {
-	CGEventRef event = CGEventCreateNextEvent();
+static void _ReceiveEvent(CFMachPortRef port, void *msg, CFIndex size, void *info) {
+	CGEventRef event = CGEventCreateNextEvent((int64_t)info);
 	if (event == NULL) {
-		return NULL;
+		return;
 	}
-
-	return GSEventCreateWithCGEvent(NULL, event);
+	
+	GSEventRef gsEvent = GSEventCreateWithCGEvent(NULL, event);
+	if (gsEvent == NULL) {
+		return;
+	}
+	__PurpleEventCallback(gsEvent);
 }
 
 void __GSEventInitializeShared(dispatch_queue_t callbackQueue) {
@@ -74,7 +81,10 @@ void __GSEventInitializeShared(dispatch_queue_t callbackQueue) {
 		CFRetain(___eventRunLoop);
 	}
 	if (___eventRunLoop != NULL) {
-		___signalRunLoopSource = CFRunLoopSourceCreate(NULL, -1, NULL);
+		CFRunLoopSourceContext context = (CFRunLoopSourceContext){
+			.perform = _PurpleEventSignalCallback,
+		};
+		___signalRunLoopSource = CFRunLoopSourceCreate(NULL, -1, &context);
 		CFRunLoopAddSource(___eventRunLoop, ___signalRunLoopSource, kCFRunLoopCommonModes);
 		CFRunLoopAddSource(___eventRunLoop, ___signalRunLoopSource, kGSEventReceiveRunLoopMode);
 	}
@@ -88,11 +98,16 @@ static void __PurpleEventCallback(GSEventRef event) {
 	if (event != NULL) {
 		GSEventQueuePushEvent(event);
 	}
+	
+	
 	if (___lastRecievedPort != 0) {
-		GSEventRef recievedEvent = NULL;
-		while ((recievedEvent = _ReceiveEvent(___lastRecievedPort)) != NULL) {
-			GSEventQueuePushEvent(recievedEvent);
-		}
+//		CGEventRef recievedEvent = NULL;
+//		while ((recievedEvent = CGEventCreateNextEvent()) != NULL) {
+//			GSEventRef evt = GSEventCreateWithCGEvent(NULL, recievedEvent);
+//			if (evt != NULL) {
+//				GSEventQueuePushEvent(evt);
+//			}
+//		}
 	}
 
 	event = GSEventQueueGetCurrentEvent();
