@@ -14,6 +14,6 @@
 /// Sets up initial state.
 ///
 /// This function should be invoked before interacting with any other part of GraphicsServices.
-CF_EXPORT void GSInitialize();
+CF_EXPORT void GSInitialize(void);
 
 #endif

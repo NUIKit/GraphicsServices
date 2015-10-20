@@ -22,7 +22,7 @@ typedef struct GSPurpleQueue {
 } *GSPurpleQueueRef;
 
 /// Returns the event queue local to the current thread of execution.
-CF_EXPORT GSPurpleQueueRef GSEventQueueGetThreadLocalQueue();
+CF_EXPORT GSPurpleQueueRef GSEventQueueGetThreadLocalQueue(void);
 
 /// Returns true iff the given queue is empty, else false.
 CF_EXPORT bool GSEventQueueIsEmpty(GSPurpleQueueRef);
@@ -31,9 +31,9 @@ CF_EXPORT bool GSEventQueueIsEmpty(GSPurpleQueueRef);
 CF_EXPORT void GSEventQueuePushEvent(GSEventRef event);
 
 /// Pops and deallocates an event from the front of the thread's event queue.
-CF_EXPORT void GSEventQueuePopEvent();
+CF_EXPORT void GSEventQueuePopEvent(void);
 
 /// Peeks at the event at the front of the thread's event queue.
-CF_EXPORT GSEventRef GSEventQueueGetCurrentEvent();
+CF_EXPORT GSEventRef GSEventQueueGetCurrentEvent(void);
 
 #endif /* GSEVENTQUEUE_H */

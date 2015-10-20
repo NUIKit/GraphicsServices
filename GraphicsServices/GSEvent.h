@@ -21,7 +21,7 @@ typedef enum __GSEventType {
 } GSEventType;
 
 /// Returns the type identifier for the GSEvent opaque type.
-CF_EXPORT CFTypeID GSEventGetTypeID();
+CF_EXPORT CFTypeID GSEventGetTypeID(void);
 
 ///
 CF_EXPORT GSEventRef GSEventCreateWithCGEvent(CFAllocatorRef allocator, CGEventRef event);
@@ -35,5 +35,10 @@ CF_EXPORT CGPoint GSEventGetLocationInWindow(GSEventRef);
 /// The time when the event occurred in seconds since system startup.
 CF_EXPORT CFAbsoluteTime GSEventGetTimestamp(GSEventRef);
 
+/// The window ID the event was dispatched to.
+CF_EXPORT CGWindowID GSEventGetWindowID(GSEventRef);
+
+/// The underlying CGEvent for this event ref.
+CF_EXPORT CGEventRef GSEventGetCGEvent(GSEventRef);
 
 #endif

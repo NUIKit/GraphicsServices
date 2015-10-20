@@ -19,7 +19,7 @@
 
 
 /// Initializes the event pump.
-CF_EXPORT void GSAppInitialize();
+CF_EXPORT void GSAppInitialize(void);
 
 
 #pragma mark - Run Loops
@@ -29,7 +29,7 @@ CF_EXPORT void GSAppInitialize();
 CF_EXPORT const CFStringRef kGSEventReceiveRunLoopMode;
 
 /// Spins the runloop in the current mode.
-CF_EXPORT void GSAppRun();
+CF_EXPORT void GSAppRun(void);
 
 /// Pushes a new run loop mode onto the top of the stack.
 CF_EXPORT void GSAppPushRunLoopMode(CFStringRef mode);
@@ -46,7 +46,7 @@ CF_EXPORT void GSAppPopRunLoopMode(CFStringRef mode);
 CF_EXPORT void GSAppRunModal(bool disallowsRestarts);
 
 /// Stops the topmost runloop and transfers control to the initiator of the modal session.
-CF_EXPORT void GSAppStopModal();
+CF_EXPORT void GSAppStopModal(void);
 
 
 #pragma mark - Callbacks
