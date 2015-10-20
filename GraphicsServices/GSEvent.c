@@ -39,6 +39,8 @@ struct __GSEvent {
 	CGFloat windowLocationY; // 0x30
 	//
 	CFAbsoluteTime timestamp; // 0x40
+	CGWindowID windowID;
+	CGEventRef cgEvent;
 };
 
 void _GSEventClassInitialize() {
@@ -65,7 +67,7 @@ Boolean _GSEventEqualToEvent(CFTypeRef cf1, CFTypeRef cf2) {
 	
 	struct __GSEvent *evt1 = (struct __GSEvent *)cf1;
 	struct __GSEvent *evt2 = (struct __GSEvent *)cf2;
-	return (evt1->type == evt2->type) && (evt1->timestamp == evt2->timestamp);
+	return (evt1->type == evt2->type) && (evt1->timestamp == evt2->timestamp) && (evt1->windowID == evt2->windowID);
 }
 
 CFTypeID GSEventGetTypeID() {
@@ -73,12 +75,25 @@ CFTypeID GSEventGetTypeID() {
 }
 
 GSEventRef GSEventCreateWithCGEvent(CFAllocatorRef allocator, CGEventRef event) {
+	if (event == NULL) {
+		return NULL;
+	}
+
+	CGSEventRecord record;
+	if (CGEventGetEventRecord(event, &record, sizeof(record)) != kCGErrorSuccess) {
+		return NULL;
+	}
+
 	uint32_t size = sizeof(struct __GSEvent) - sizeof(CFRuntimeBase);
 	GSEventRef memory = (void *)_CFRuntimeCreateInstance(allocator, GSEventGetTypeID(), size, NULL);
 	if (memory == NULL) {
 		return NULL;
 	}
-	
+
+	memory->cgEvent = (CGEventRef)CFRetain(event);
+	memory->windowID = record.window;
+	memory->windowLocationX = record.windowLocation.x;
+	memory->windowLocationY = record.windowLocation.y;
 	return memory;
 }
 
@@ -103,3 +118,16 @@ CFAbsoluteTime GSEventGetTimestamp(GSEventRef ref) {
 	return ref->timestamp;
 }
 
+CGWindowID GSEventGetWindowID(GSEventRef ref) {
+	if (ref == NULL) {
+		return 0;
+	}
+	return ref->windowID;
+}
+
+CGEventRef GSEventGetCGEvent(GSEventRef ref) {
+	if (ref == NULL) {
+		return 0;
+	}
+	return ref->cgEvent;
+}
