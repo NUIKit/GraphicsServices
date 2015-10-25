@@ -31,7 +31,7 @@ static const CFRuntimeClass _GSEventClass = {
 
 struct __GSEvent {
 	CFRuntimeBase _base; // 0x0
-	GSEventType type; // 0x10
+	CGSEventType type; // 0x10
 	//
 	//
 	//
@@ -55,9 +55,15 @@ CFTypeRef _GSEventCopy(CFAllocatorRef allocator, CFTypeRef cf) {
 	return copiedEvent;
 }
 
+static const char *GSEventTypeTable[] = {
+#define X(EVT, VAL) #EVT,
+	GS_EVENT_TYPES_TABLE
+#undef X
+};
+
 CFStringRef _GSEventCopyDescription(CFTypeRef t) {
 	struct __GSEvent *evt = (struct __GSEvent *)t;
-	return CFStringCreateWithFormat(CFGetAllocator(t), NULL, CFSTR("<GSEvent %p>{type = %lx, windowLoc = (%f, %f)}"), t, GSEventGetTypeID(), evt->windowLocationX, evt->windowLocationY);
+	return CFStringCreateWithFormat(CFGetAllocator(t), NULL, CFSTR("<GSEvent %p>{type = %s, windowLoc = (%f, %f)}"), t, GSEventTypeTable[evt->type], evt->windowLocationX, evt->windowLocationY);
 }
 
 Boolean _GSEventEqualToEvent(CFTypeRef cf1, CFTypeRef cf2) {
@@ -90,6 +96,7 @@ GSEventRef GSEventCreateWithCGEvent(CFAllocatorRef allocator, CGEventRef event) 
 		return NULL;
 	}
 
+	memory->type = record.type;
 	memory->cgEvent = (CGEventRef)CFRetain(event);
 	memory->windowID = record.window;
 	memory->windowLocationX = record.windowLocation.x;
@@ -97,7 +104,7 @@ GSEventRef GSEventCreateWithCGEvent(CFAllocatorRef allocator, CGEventRef event) 
 	return memory;
 }
 
-GSEventType GSEventGetType(GSEventRef ref) {
+CGSEventType GSEventGetType(GSEventRef ref) {
 	if (ref == NULL) {
 		return -1;
 	}

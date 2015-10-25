@@ -36,131 +36,7 @@ typedef unsigned short CGSEventRecordVersion;
 typedef unsigned long long CGSEventRecordTime;  /* nanosecond timer */
 typedef unsigned long CGSEventFlag;
 typedef unsigned long CGSByteCount;
-typedef int CGSConnectionID;
-
-typedef enum {
-	kCGSEventNotificationNullEvent = 0,
-
-	kCGSEventNotificationLeftMouseDown,
-	kCGSEventNotificationLeftMouseUp,
-	kCGSEventNotificationRightMouseDown,
-	kCGSEventNotificationRightMouseUp,
-	kCGSEventNotificationMouseMoved,
-	kCGSEventNotificationLeftMouseDragged,
-	kCGSEventNotificationRightMouseDragged,
-
-	kCGSEventNotificationMouseEntered,
-	kCGSEventNotificationMouseExited,
-
-	kCGSEventNotificationKeyDown,
-	kCGSEventNotificationKeyUp,
-
-	kCGSEventNotificationFlagsChanged,
-
-	kCGSEventNotificationKitDefined,
-	kCGSEventNotificationSystemDefined,
-	kCGSEventNotificationApplicationDefined,
-
-	kCGSEventNotificationTimer,
-
-	kCGSEventNotificationCursorUpdate,
-
-	kCGSEventNotificationSuspend,
-	kCGSEventNotificationResume,
-
-	kCGSEventNotificationNotification,
-
-	kCGSEventNotificationScrollWheel,
-
-	kCGSEventNotificationTabletPointer,
-	kCGSEventNotificationTabletProximity,
-
-	kCGSEventNotificationOtherMouseDown,
-	kCGSEventNotificationOtherMouseUp,
-	kCGSEventNotificationOtherMouseDragged,
-
-	kCGSEventNotificationZoom,
-
-	kCGSEventNotificationAppIsUnresponsive,
-	kCGSEventNotificationAppIsNoLongerUnresponsive,
-
-	kCGSEventSecureTextInputIsActive,
-	kCGSEventSecureTextInputIsOff,
-
-	kCGSEventNotificationSymbolicHotKeyChanged,
-	kCGSEventNotificationSymbolicHotKeyDisabled,
-	kCGSEventNotificationSymbolicHotKeyEnabled,
-	kCGSEventNotificationHotKeysGloballyDisabled,
-	kCGSEventNotificationHotKeysGloballyEnabled,
-	kCGSEventNotificationHotKeysExceptUniversalAccessGloballyDisabled,
-	kCGSEventNotificationHotKeysExceptUniversalAccessGloballyEnabled,
-
-	kCGSWindowIsObscured,
-	kCGSWindowIsUnobscured,
-	kCGSWindowIsOrderedIn,
-	kCGSWindowIsOrderedOut,
-	kCGSWindowIsTerminated,
-	kCGSWindowIsChangingScreens,
-	kCGSWindowDidMove,
-	kCGSWindowDidResize,
-	kCGSWindowDidChangeOrder,
-	kCGSWindowGeometryDidChange,
-	kCGSWindowMonitorDataPending,
-	kCGSWindowDidCreate,
-	kCGSWindowRightsGrantOffered,
-	kCGSWindowRightsGrantCompleted,
-	kCGSWindowRecordForTermination,
-	kCGSWindowIsVisible,
-	kCGSWindowIsInvisible,
-
-	kCGSPackagesWorkspacesDisabled,
-	kCGSPackagesWorkspacesEnabled,
-	kCGSPackagesStatusBarSpaceChanged,
-
-	kCGSessionConsoleConnect,
-	kCGSessionConsoleDisconnect,
-	kCGSessionRemoteConnect,
-	kCGSessionRemoteDisconnect,
-	kCGSessionLoggedOn,
-	kCGSessionLoggedOff,
-	kCGSessionConsoleWillDisconnect,
-
-	kCGSTransitionDidFinish,
-
-	kCGSConnectionWindowsBecameVisible,
-	kCGSConnectionWindowsBecameOccluded,
-	kCGSConnectionWindowModificationsStarted,
-	kCGSConnectionWindowModificationsStopped,
-
-	kCGSLikelyUnbalancedDisableUpdateNotification,
-
-	kCGSWindowBecameVisible,
-	kCGSWindowBecameOccluded,
-
-	kCGSWorkspaceWillChange,
-	kCGSWorkspaceDidChange,
-
-	kCGSWorkspaceWindowIsViewable,
-	kCGSWorkspaceWindowIsNotViewable,
-
-	kCGSWorkspaceWindowDidMove,
-
-	kCGSWorkspacePrefsDidChange,
-
-	kCGSWorkspacesWindowDidOrderOutInOtherSpace,
-	kCGSWorkspacesWindowDidOrderInOtherSpace,
-	kCGSWorkspacesWindowDidChangeOrder,
-
-	kCGSWorkspacesWindowDragDidStart,
-	kCGSWorkspacesWindowDragDidEnd,
-
-	kCGSWorkspacesWindowDidOrderInUserSpace,
-
-	kCGSWorkspacesShowSpaceForProcess,
-
-	kCGSWorkspacesWindowDidOrderInOnNonCurrentManagedSpacesOnly,
-	kCGSWorkspacesWindowDidOrderOutOnNonCurrentManagedSpaces,
-} CGSEventType;
+typedef uint32_t CGSConnectionID;
 
 typedef struct {
 	NXEventData eventData;
@@ -197,19 +73,21 @@ typedef struct _CGSEventRecord {
 		unsigned int targetID;
 		unsigned int flags;
 	} eventProcess;
-	CGSEventRecordData data;    /* type-dependent data: 40 bytes */
+	NXEventData eventData;
+	SInt32 _padding[4];
 	void *ioEventData;
-	/*
-	 unsigned short windowHeight;
-	 unsigned short mainDisplayHeight;
-	 unsigned short *unicodePayload;
-	 unsigned int eventOwner;
-	 unsigned char passedThrough;
-	 */
-	unsigned int _field15[4];
 	unsigned short _field16;
 	unsigned short _field17;
-	unsigned short *_field18;
+	struct _CGSEventAppendix {
+		unsigned short windowHeight;
+		unsigned short mainDisplayHeight;
+		unsigned short *unicodePayload;
+		unsigned int eventOwner;
+		unsigned char passedThrough;
+	} *appendix;
+	unsigned int _field18;
+	bool passedThrough;
+	CFDataRef data;
 } CGSEventRecord;
 
 /// Gets the event record for a given `CGEventRef`.

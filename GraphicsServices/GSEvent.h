@@ -12,13 +12,10 @@
 #include <mach/message.h>
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreGraphics/CoreGraphics.h>
+#include <GraphicsServices/GSEventTypes.h>
 #include <Availability.h>
 
 typedef struct __GSEvent *GSEventRef;
-
-typedef enum __GSEventType {
-	kGSEventTypePlaceholder = -1,
-} GSEventType;
 
 /// Returns the type identifier for the GSEvent opaque type.
 CF_EXPORT CFTypeID GSEventGetTypeID(void);
@@ -27,7 +24,7 @@ CF_EXPORT CFTypeID GSEventGetTypeID(void);
 CF_EXPORT GSEventRef GSEventCreateWithCGEvent(CFAllocatorRef allocator, CGEventRef event);
 
 /// Returns the type of the given event.
-CF_EXPORT GSEventType GSEventGetType(GSEventRef);
+CF_EXPORT CGSEventType GSEventGetType(GSEventRef);
 
 /// Returns the location of the given event in the base coordinate system of the associated window.
 CF_EXPORT CGPoint GSEventGetLocationInWindow(GSEventRef);

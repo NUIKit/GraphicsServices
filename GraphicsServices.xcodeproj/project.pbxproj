@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82573C601BDD64AD00549861 /* GSEventTypes.def in Headers */ = {isa = PBXBuildFile; fileRef = 82573C5F1BDD64AD00549861 /* GSEventTypes.def */; settings = {ATTRIBUTES = (Public, ); }; };
+		82573C621BDD65FD00549861 /* GSEventTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 82573C611BDD64C700549861 /* GSEventTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		829F155E1B6C5FAB00F8E692 /* GraphicsServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		829F15661B6C5FCD00F8E692 /* GSBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F15651B6C5FCD00F8E692 /* GSBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		829F15691B6C600900F8E692 /* GSEvent.c in Sources */ = {isa = PBXBuildFile; fileRef = 829F15671B6C600900F8E692 /* GSEvent.c */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		82573C5F1BDD64AD00549861 /* GSEventTypes.def */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = GSEventTypes.def; sourceTree = "<group>"; };
+		82573C611BDD64C700549861 /* GSEventTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSEventTypes.h; sourceTree = "<group>"; };
 		829F155A1B6C5FAB00F8E692 /* GraphicsServices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphicsServices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		829F155D1B6C5FAB00F8E692 /* GraphicsServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GraphicsServices.h; path = GraphicsServices/GraphicsServices.h; sourceTree = "<group>"; };
 		829F155F1B6C5FAB00F8E692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				829F157D1B6D4CFD00F8E692 /* GSApp.h */,
 				829F15671B6C600900F8E692 /* GSEvent.c */,
 				829F15681B6C600900F8E692 /* GSEvent.h */,
+				82573C611BDD64C700549861 /* GSEventTypes.h */,
+				82573C5F1BDD64AD00549861 /* GSEventTypes.def */,
 				829F15731B6D3D7B00F8E692 /* GSEventQueue.c */,
 				829F15741B6D3D7B00F8E692 /* GSEventQueue.h */,
 				829F156D1B6C67D800F8E692 /* GSPrivate.c */,
@@ -100,8 +106,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82573C601BDD64AD00549861 /* GSEventTypes.def in Headers */,
 				829F157F1B6D4CFD00F8E692 /* GSApp.h in Headers */,
 				829F155E1B6C5FAB00F8E692 /* GraphicsServices.h in Headers */,
+				82573C621BDD65FD00549861 /* GSEventTypes.h in Headers */,
 				829F156C1B6C60A300F8E692 /* GSCoreFoundationBridge.h in Headers */,
 				829F15661B6C5FCD00F8E692 /* GSBase.h in Headers */,
 				829F15701B6C67D800F8E692 /* GSPrivate.h in Headers */,
