@@ -1,140 +1,140 @@
 #define GS_EVENT_TYPES_TABLE \
-	X(kCGSDisplayWillReconfigure, 100) \
-	X(kCGSDisplayDidReconfigure, 101) \
-	X(kCGSDisplayWillSleep, 102) \
-	X(kCGSDisplayDidWake, 103) \
-	X(kCGSDisplayIsCaptured, 106) \
-	X(kCGSDisplayIsReleased, 107) \
-	X(kCGSDisplayAllDisplaysReleased, 108) \
-	X(kCGSDisplayHardwareChanged, 111) \
-	X(kCGSDisplayDidReconfigure2, 115) \
-	X(kCGSDisplayFullScreenAppRunning, 116) \
-	X(kCGSDisplayFullScreenAppDone, 117) \
-	X(kCGSDisplayReconfigureHappened, 118) \
-	X(kCGSDisplayColorProfileChanged, 119) \
-	X(kCGSDisplayZoomStateChanged, 120) \
-	X(kCGSDisplayAcceleratorChanged, 121) \
-	X(kCGSDebugOptionsChangedNotification, 200) \
-	X(kCGSDebugPrintResourcesNotification, 203) \
-	X(kCGSDebugPrintResourcesMemoryNotification, 205) \
-	X(kCGSDebugPrintResourcesContextNotification, 206) \
-	X(kCGSDebugPrintResourcesImageNotification, 208) \
-	X(kCGSServerConnDirtyScreenNotification, 300) \
-	X(kCGSServerLoginNotification, 301) \
-	X(kCGSServerShutdownNotification, 302) \
-	X(kCGSServerUserPreferencesLoadedNotification, 303) \
-	X(kCGSServerUpdateDisplayNotification, 304) \
-	X(kCGSServerCAContextDidCommitNotification, 305) \
-	X(kCGSServerUpdateDisplayCompletedNotification, 306) \
-	X(kCPXForegroundProcessSwitched, 400) \
-	X(kCPXSpecialKeyPressed, 401) \
-	X(kCPXForegroundProcessSwitchRequestedButRedundant, 402) \
-	X(kCGSSpecialKeyEventNotification, 700) \
-	X(kCGSEventNotificationNullEvent, 710) \
-	X(kCGSEventNotificationLeftMouseDown, 711) \
-	X(kCGSEventNotificationLeftMouseUp, 712) \
-	X(kCGSEventNotificationRightMouseDown, 713) \
-	X(kCGSEventNotificationRightMouseUp, 714) \
-	X(kCGSEventNotificationMouseMoved, 715) \
-	X(kCGSEventNotificationLeftMouseDragged, 716) \
-	X(kCGSEventNotificationRightMouseDragged, 717) \
-	X(kCGSEventNotificationMouseEntered, 718) \
-	X(kCGSEventNotificationMouseExited, 719) \
-	X(kCGSEventNotificationKeyDown, 720) \
-	X(kCGSEventNotificationKeyUp, 721) \
-	X(kCGSEventNotificationFlagsChanged, 722) \
-	X(kCGSEventNotificationKitDefined, 723) \
-	X(kCGSEventNotificationSystemDefined, 724) \
-	X(kCGSEventNotificationApplicationDefined, 725) \
-	X(kCGSEventNotificationTimer, 726) \
-	X(kCGSEventNotificationCursorUpdate, 727) \
-	X(kCGSEventNotificationSuspend, 729) \
-	X(kCGSEventNotificationResume, 730) \
-	X(kCGSEventNotificationNotification, 731) \
-	X(kCGSEventNotificationScrollWheel, 732) \
-	X(kCGSEventNotificationTabletPointer, 733) \
-	X(kCGSEventNotificationTabletProximity, 734) \
-	X(kCGSEventNotificationOtherMouseDown, 735) \
-	X(kCGSEventNotificationOtherMouseUp, 736) \
-	X(kCGSEventNotificationOtherMouseDragged, 737) \
-	X(kCGSEventNotificationZoom, 738) \
-	X(kCGSEventNotificationAppIsUnresponsive, 750) \
-	X(kCGSEventNotificationAppIsNoLongerUnresponsive, 751) \
-	X(kCGSEventSecureTextInputIsActive, 752) \
-	X(kCGSEventSecureTextInputIsOff, 753) \
-	X(kCGSEventNotificationSymbolicHotKeyChanged, 760) \
-	X(kCGSEventNotificationSymbolicHotKeyDisabled, 761) \
-	X(kCGSEventNotificationSymbolicHotKeyEnabled, 762) \
-	X(kCGSEventNotificationHotKeysGloballyDisabled, 763) \
-	X(kCGSEventNotificationHotKeysGloballyEnabled, 764) \
-	X(kCGSEventNotificationHotKeysExceptUniversalAccessGloballyDisabled, 765) \
-	X(kCGSEventNotificationHotKeysExceptUniversalAccessGloballyEnabled, 766) \
-	X(kCGSWindowIsObscured, 800) \
-	X(kCGSWindowIsUnobscured, 801) \
-	X(kCGSWindowIsOrderedIn, 802) \
-	X(kCGSWindowIsOrderedOut, 803) \
-	X(kCGSWindowIsTerminated, 804) \
-	X(kCGSWindowIsChangingScreens, 805) \
-	X(kCGSWindowDidMove, 806) \
-	X(kCGSWindowDidResize, 807) \
-	X(kCGSWindowDidChangeOrder, 808) \
-	X(kCGSWindowGeometryDidChange, 809) \
-	X(kCGSWindowMonitorDataPending, 810) \
-	X(kCGSWindowDidCreate, 811) \
-	X(kCGSWindowRightsGrantOffered, 812) \
-	X(kCGSWindowRightsGrantCompleted, 813) \
-	X(kCGSWindowRecordForTermination, 814) \
-	X(kCGSWindowIsVisible, 815) \
-	X(kCGSWindowIsInvisible, 816) \
-	X(kCGSLikelyUnbalancedDisableUpdateNotification, 902) \
-	X(kCGSConnectionWindowsBecameVisible, 904) \
-	X(kCGSConnectionWindowsBecameOccluded, 905) \
-	X(kCGSConnectionWindowModificationsStarted, 906) \
-	X(kCGSConnectionWindowModificationsStopped, 907) \
-	X(kCGSWindowBecameVisible, 912) \
-	X(kCGSWindowBecameOccluded, 913) \
-	X(kCGSServerWindowDidCreate, 1000) \
-	X(kCGSServerWindowWillTerminate, 1001) \
-	X(kCGSServerWindowOrderDidChange, 1002) \
-	X(kCGSServerWindowDidTerminate, 1003) \
-	X(kCGSServerMenuBarCreated, 1300) \
-	X(kCGSServerHidBackstopMenuBar, 1301) \
-	X(kCGSServerShowBackstopMenuBar, 1302) \
-	X(kCGSServerMenuBarDrawingStyleChanged, 1303) \
-	X(kCGSServerPersistentAppsRegistered, 1304) \
-	X(kCGSServerPersistentCheckinComplete, 1305) \
-	X(kCGSPackagesWorkspacesDisabled, 1306) \
-	X(kCGSPackagesWorkspacesEnabled, 1307) \
-	X(kCGSPackagesStatusBarSpaceChanged, 1308) \
-	X(kCGSWorkspaceWillChange, 1400) \
-	X(kCGSWorkspaceDidChange, 1401) \
-	X(kCGSWorkspaceWindowIsViewable, 1402) \
-	X(kCGSWorkspaceWindowIsNotViewable, 1403) \
-	X(kCGSWorkspaceWindowDidMove, 1404) \
-	X(kCGSWorkspacePrefsDidChange, 1405) \
-	X(kCGSWorkspacesWindowDragDidStart, 1411) \
-	X(kCGSWorkspacesWindowDragDidEnd, 1412) \
-	X(kCGSWorkspacesWindowDragWillEnd, 1413) \
-	X(kCGSWorkspacesShowSpaceForProcess, 1414) \
-	X(kCGSWorkspacesWindowDidOrderInOnNonCurrentManagedSpacesOnly, 1415) \
-	X(kCGSWorkspacesWindowDidOrderOutOnNonCurrentManagedSpaces, 1416) \
-	X(kCGSessionConsoleConnect, 1500) \
-	X(kCGSessionConsoleDisconnect, 1501) \
-	X(kCGSessionRemoteConnect, 1502) \
-	X(kCGSessionRemoteDisconnect, 1503) \
-	X(kCGSessionLoggedOn, 1504) \
-	X(kCGSessionLoggedOff, 1505) \
-	X(kCGSessionConsoleWillDisconnect, 1506) \
-	X(kCGXWillCreateSession, 1550) \
-	X(kCGXDidCreateSession, 1551) \
-	X(kCGXWillDestroySession, 1552) \
-	X(kCGXDidDestroySession, 1553) \
-	X(kCGXWorkspaceConnected, 1554) \
-	X(kCGXSessionReleased, 1555) \
-	X(kCGSTransitionDidFinish, 1700) \
-	X(kCGXServerDisplayHardwareWillReset, 1800) \
-	X(kCGXServerDesktopShapeChanged, 1801) \
-	X(kCGXServerDisplayConfigurationChanged, 1802) \
-	X(kCGXServerDisplayAcceleratorOffline, 1803) \
-	X(kCGXServerDisplayAcceleratorDeactivate, 1804)
-
+	X(kCGSDisplayWillReconfigure, 100, 0) \
+	X(kCGSDisplayDidReconfigure, 101, 1) \
+	X(kCGSDisplayWillSleep, 102, 2) \
+	X(kCGSDisplayDidWake, 103, 3) \
+	X(kCGSDisplayIsCaptured, 106, 4) \
+	X(kCGSDisplayIsReleased, 107, 5) \
+	X(kCGSDisplayAllDisplaysReleased, 108, 6) \
+	X(kCGSDisplayHardwareChanged, 111, 7) \
+	X(kCGSDisplayDidReconfigure2, 115, 8) \
+	X(kCGSDisplayFullScreenAppRunning, 116, 9) \
+	X(kCGSDisplayFullScreenAppDone, 117, 10) \
+	X(kCGSDisplayReconfigureHappened, 118, 11) \
+	X(kCGSDisplayColorProfileChanged, 119, 12) \
+	X(kCGSDisplayZoomStateChanged, 120, 13) \
+	X(kCGSDisplayAcceleratorChanged, 121, 14) \
+	X(kCGSDebugOptionsChangedNotification, 200, 15) \
+	X(kCGSDebugPrintResourcesNotification, 203, 16) \
+	X(kCGSDebugPrintResourcesMemoryNotification, 205, 17) \
+	X(kCGSDebugPrintResourcesContextNotification, 206, 18) \
+	X(kCGSDebugPrintResourcesImageNotification, 208, 19) \
+	X(kCGSServerConnDirtyScreenNotification, 300, 20) \
+	X(kCGSServerLoginNotification, 301, 21) \
+	X(kCGSServerShutdownNotification, 302, 22) \
+	X(kCGSServerUserPreferencesLoadedNotification, 303, 23) \
+	X(kCGSServerUpdateDisplayNotification, 304, 24) \
+	X(kCGSServerCAContextDidCommitNotification, 305, 25) \
+	X(kCGSServerUpdateDisplayCompletedNotification, 306, 26) \
+	X(kCPXForegroundProcessSwitched, 400, 27) \
+	X(kCPXSpecialKeyPressed, 401, 28) \
+	X(kCPXForegroundProcessSwitchRequestedButRedundant, 402, 29) \
+	X(kCGSSpecialKeyEventNotification, 700, 30) \
+	X(kCGSEventNotificationNullEvent, 710, 31) \
+	X(kCGSEventNotificationLeftMouseDown, 711, 32) \
+	X(kCGSEventNotificationLeftMouseUp, 712, 33) \
+	X(kCGSEventNotificationRightMouseDown, 713, 34) \
+	X(kCGSEventNotificationRightMouseUp, 714, 35) \
+	X(kCGSEventNotificationMouseMoved, 715, 36) \
+	X(kCGSEventNotificationLeftMouseDragged, 716, 37) \
+	X(kCGSEventNotificationRightMouseDragged, 717, 38) \
+	X(kCGSEventNotificationMouseEntered, 718, 39) \
+	X(kCGSEventNotificationMouseExited, 719, 40) \
+	X(kCGSEventNotificationKeyDown, 720, 41) \
+	X(kCGSEventNotificationKeyUp, 721, 42) \
+	X(kCGSEventNotificationFlagsChanged, 722, 43) \
+	X(kCGSEventNotificationKitDefined, 723, 44) \
+	X(kCGSEventNotificationSystemDefined, 724, 45) \
+	X(kCGSEventNotificationApplicationDefined, 725, 46) \
+	X(kCGSEventNotificationTimer, 726, 47) \
+	X(kCGSEventNotificationCursorUpdate, 727, 48) \
+	X(kCGSEventNotificationSuspend, 729, 49) \
+	X(kCGSEventNotificationResume, 730, 50) \
+	X(kCGSEventNotificationNotification, 731, 51) \
+	X(kCGSEventNotificationScrollWheel, 732, 52) \
+	X(kCGSEventNotificationTabletPointer, 733, 53) \
+	X(kCGSEventNotificationTabletProximity, 734, 54) \
+	X(kCGSEventNotificationOtherMouseDown, 735, 55) \
+	X(kCGSEventNotificationOtherMouseUp, 736, 56) \
+	X(kCGSEventNotificationOtherMouseDragged, 737, 57) \
+	X(kCGSEventNotificationZoom, 738, 58) \
+	X(kCGSEventNotificationAppIsUnresponsive, 750, 59) \
+	X(kCGSEventNotificationAppIsNoLongerUnresponsive, 751, 60) \
+	X(kCGSEventSecureTextInputIsActive, 752, 61) \
+	X(kCGSEventSecureTextInputIsOff, 753, 62) \
+	X(kCGSEventNotificationSymbolicHotKeyChanged, 760, 63) \
+	X(kCGSEventNotificationSymbolicHotKeyDisabled, 761, 64) \
+	X(kCGSEventNotificationSymbolicHotKeyEnabled, 762, 65) \
+	X(kCGSEventNotificationHotKeysGloballyDisabled, 763, 66) \
+	X(kCGSEventNotificationHotKeysGloballyEnabled, 764, 67) \
+	X(kCGSEventNotificationHotKeysExceptUniversalAccessGloballyDisabled, 765, 68) \
+	X(kCGSEventNotificationHotKeysExceptUniversalAccessGloballyEnabled, 766, 69) \
+	X(kCGSWindowIsObscured, 800, 70) \
+	X(kCGSWindowIsUnobscured, 801, 71) \
+	X(kCGSWindowIsOrderedIn, 802, 72) \
+	X(kCGSWindowIsOrderedOut, 803, 73) \
+	X(kCGSWindowIsTerminated, 804, 74) \
+	X(kCGSWindowIsChangingScreens, 805, 75) \
+	X(kCGSWindowDidMove, 806, 76) \
+	X(kCGSWindowDidResize, 807, 77) \
+	X(kCGSWindowDidChangeOrder, 808, 78) \
+	X(kCGSWindowGeometryDidChange, 809, 79) \
+	X(kCGSWindowMonitorDataPending, 810, 80) \
+	X(kCGSWindowDidCreate, 811, 81) \
+	X(kCGSWindowRightsGrantOffered, 812, 82) \
+	X(kCGSWindowRightsGrantCompleted, 813, 83) \
+	X(kCGSWindowRecordForTermination, 814, 84) \
+	X(kCGSWindowIsVisible, 815, 85) \
+	X(kCGSWindowIsInvisible, 816, 86) \
+	X(kCGSLikelyUnbalancedDisableUpdateNotification, 902, 87) \
+	X(kCGSConnectionWindowsBecameVisible, 904, 88) \
+	X(kCGSConnectionWindowsBecameOccluded, 905, 89) \
+	X(kCGSConnectionWindowModificationsStarted, 906, 90) \
+	X(kCGSConnectionWindowModificationsStopped, 907, 91) \
+	X(kCGSWindowBecameVisible, 912, 92) \
+	X(kCGSWindowBecameOccluded, 913, 93) \
+	X(kCGSServerWindowDidCreate, 1000, 94) \
+	X(kCGSServerWindowWillTerminate, 1001, 95) \
+	X(kCGSServerWindowOrderDidChange, 1002, 96) \
+	X(kCGSServerWindowDidTerminate, 1003, 97) \
+	X(kCGSServerMenuBarCreated, 1300, 98) \
+	X(kCGSServerHidBackstopMenuBar, 1301, 99) \
+	X(kCGSServerShowBackstopMenuBar, 1302, 100) \
+	X(kCGSServerMenuBarDrawingStyleChanged, 1303, 101) \
+	X(kCGSServerPersistentAppsRegistered, 1304, 102) \
+	X(kCGSServerPersistentCheckinComplete, 1305, 103) \
+	X(kCGSPackagesWorkspacesDisabled, 1306, 104) \
+	X(kCGSPackagesWorkspacesEnabled, 1307, 105) \
+	X(kCGSPackagesStatusBarSpaceChanged, 1308, 106) \
+	X(kCGSWorkspaceWillChange, 1400, 107) \
+	X(kCGSWorkspaceDidChange, 1401, 108) \
+	X(kCGSWorkspaceWindowIsViewable, 1402, 109) \
+	X(kCGSWorkspaceWindowIsNotViewable, 1403, 110) \
+	X(kCGSWorkspaceWindowDidMove, 1404, 111) \
+	X(kCGSWorkspacePrefsDidChange, 1405, 112) \
+	X(kCGSWorkspacesWindowDragDidStart, 1411, 113) \
+	X(kCGSWorkspacesWindowDragDidEnd, 1412, 114) \
+	X(kCGSWorkspacesWindowDragWillEnd, 1413, 115) \
+	X(kCGSWorkspacesShowSpaceForProcess, 1414, 116) \
+	X(kCGSWorkspacesWindowDidOrderInOnNonCurrentManagedSpacesOnly, 1415, 117) \
+	X(kCGSWorkspacesWindowDidOrderOutOnNonCurrentManagedSpaces, 1416, 118) \
+	X(kCGSessionConsoleConnect, 1500, 119) \
+	X(kCGSessionConsoleDisconnect, 1501, 120) \
+	X(kCGSessionRemoteConnect, 1502, 121) \
+	X(kCGSessionRemoteDisconnect, 1503, 122) \
+	X(kCGSessionLoggedOn, 1504, 123) \
+	X(kCGSessionLoggedOff, 1505, 124) \
+	X(kCGSessionConsoleWillDisconnect, 1506, 125) \
+	X(kCGXWillCreateSession, 1550, 126) \
+	X(kCGXDidCreateSession, 1551, 127) \
+	X(kCGXWillDestroySession, 1552, 128) \
+	X(kCGXDidDestroySession, 1553, 129) \
+	X(kCGXWorkspaceConnected, 1554, 130) \
+	X(kCGXSessionReleased, 1555, 131) \
+	X(kCGSTransitionDidFinish, 1700, 132) \
+	X(kCGXServerDisplayHardwareWillReset, 1800, 133) \
+	X(kCGXServerDesktopShapeChanged, 1801, 134) \
+	X(kCGXServerDisplayConfigurationChanged, 1802, 135) \
+	X(kCGXServerDisplayAcceleratorOffline, 1803, 136) \
+	X(kCGXServerDisplayAcceleratorDeactivate, 1804, 137) \
+	X(kCGSEventCount, 138, 138)

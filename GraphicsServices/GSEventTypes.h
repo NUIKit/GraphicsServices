@@ -12,7 +12,7 @@
 #include "GSEventTypes.def"
 
 typedef enum {
-#define X(EVT, VAL) EVT = VAL,
+#define X(EVT, VAL, IDX) EVT = VAL,
 	GS_EVENT_TYPES_TABLE
 #undef X
 } CGSEventType;
