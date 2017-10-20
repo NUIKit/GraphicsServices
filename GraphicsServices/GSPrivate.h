@@ -90,9 +90,15 @@ typedef struct _CGSEventRecord {
 	CFDataRef data;
 } CGSEventRecord;
 
+#if MAC_OS_X_VERSION_10_13
+/// Retrieves the location of this event in the coordinate space of the window
+/// it occured in.
+CG_EXTERN CGPoint CGEventGetWindowLocation(CGEventRef event);
+#else
 /// Gets the event record for a given `CGEventRef`.
 ///
 /// For Carbon events, use `GetEventPlatformEventRecord`.
 CG_EXTERN CGError CGEventGetEventRecord(CGEventRef event, CGSEventRecord *outRecord, size_t recSize);
+#endif
 
 #endif /* GSPRIVATE_H */

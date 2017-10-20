@@ -101,22 +101,18 @@ GSEventRef GSEventCreateWithCGEvent(CFAllocatorRef allocator, CGEventRef event) 
 		return NULL;
 	}
 
-	CGSEventRecord record;
-	if (CGEventGetEventRecord(event, &record, sizeof(record)) != kCGErrorSuccess) {
-		return NULL;
-	}
-
 	uint32_t size = sizeof(struct __GSEvent) - sizeof(CFRuntimeBase);
 	GSEventRef memory = (void *)_CFRuntimeCreateInstance(allocator, GSEventGetTypeID(), size, NULL);
 	if (memory == NULL) {
 		return NULL;
 	}
 
-	memory->type = record.type;
 	memory->cgEvent = (CGEventRef)CFRetain(event);
-	memory->windowID = record.window;
-	memory->windowLocationX = record.windowLocation.x;
-	memory->windowLocationY = record.windowLocation.y;
+	memory->type = CGEventGetType(event);
+	memory->windowID = (CGWindowID)CGEventGetIntegerValueField(event, kCGMouseEventWindowUnderMousePointer);
+	CGPoint windowLoc = CGEventGetWindowLocation(event);
+	memory->windowLocationX = windowLoc.x;
+	memory->windowLocationY = windowLoc.y;
 	return memory;
 }
 

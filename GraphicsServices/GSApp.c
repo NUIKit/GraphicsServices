@@ -9,6 +9,8 @@
 #include "GSApp.h"
 #include "GSPrivate.h"
 
+#include <mach/mach_port.h>
+
 void GSAppRun() {
 	GSAppRunModal(false);
 }
@@ -74,7 +76,7 @@ void GSAppStopModal() {
 
 static mach_port_t ___applicationPort;
 extern CGError CGSGetEventPort(int64_t, mach_port_t *);
-extern int64_t CGSMainConnectionID();
+extern int64_t CGSMainConnectionID(void);
 
 void __GSEventInitializeApp(dispatch_queue_t queue) {
 	static bool _initialized;
